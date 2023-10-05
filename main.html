@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Orientation Background Changer</title>
+    
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <script>
+        function setBodyBackground() {
+            const isPortrait = window.innerHeight > window.innerWidth;
+            const body = document.body;
+            const portraitImage = "https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Portrait-en-orientation-portrait.jpg";
+            const landscapeImage = "https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-paysage.jpg";
 
+            body.style.backgroundImage = isPortrait ? `url('${portraitImage}')` : `url('${landscapeImage}')`;
+        }
+
+        // Initial setup
+        setBodyBackground();
+
+        // Listen for changes in screen orientation
+        window.addEventListener("resize", setBodyBackground);
+    </script>
 </body>
-
 </html>
